@@ -2,9 +2,8 @@ module.exports = async function (context, req) {
   const apiResponse = await fetch(
     'https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=4'
   )
-  const facts = await apiResponse.json()
-  const data = facts
-    ? facts
+  const data = apiResponse
+    ? apiResponse
     : 'This HTTP triggered function unexpectedly failed.'
 
   context.res = {
