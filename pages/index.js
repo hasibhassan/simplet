@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-export default function Home({ data }) {
+export default function Home({ data = ['0', '0', '0', '0'] }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -49,19 +49,19 @@ export default function Home({ data }) {
     </div>
   )
 }
-export async function getStaticProps() {
-  // Call an external API endpoint to get posts.
-  // You can use any data fetching library
-  const res = await fetch(
-    'https://wonderful-mushroom-0f8671c10.azurestaticapps.net/api/get'
-  )
-  const data = await res.json()
+// export async function getStaticProps() {
+//   // Call an external API endpoint to get posts.
+//   // You can use any data fetching library
+//   const res = await fetch(
+//     'https://wonderful-mushroom-0f8671c10.azurestaticapps.net/api/get'
+//   )
+//   const data = await res.json()
 
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
-  return {
-    props: {
-      data,
-    },
-  }
-}
+//   // By returning { props: { posts } }, the Blog component
+//   // will receive `posts` as a prop at build time
+//   return {
+//     props: {
+//       data,
+//     },
+//   }
+// }
