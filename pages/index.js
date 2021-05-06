@@ -52,7 +52,9 @@ export default function Home({ data }) {
 export async function getStaticProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch('/api/get')
+  const res = await fetch(
+    'https://wonderful-mushroom-0f8671c10.azurestaticapps.net/api/get'
+  )
   const data = await res.json()
 
   // By returning { props: { posts } }, the Blog component
