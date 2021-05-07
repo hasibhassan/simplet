@@ -1,7 +1,27 @@
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-export default function Home({ data = ['1', '2', '3', '4'] }) {
+export default function Home() {
+  const [data, setData] = useState([
+    { fact: 'loading' },
+    { fact: 'loading' },
+    { fact: 'loading' },
+    { fact: 'loading' },
+  ])
+  const fetcher = async () => {
+    await fetch(
+      'http://wonderful-mushroom-0f8671c10.azurestaticapps.net/api/get'
+    )
+      .then((res) => {
+        console.log(res)
+        res.json()
+      })
+      .then((res) => setData(res))
+  }
+  useEffect(() => {
+    fetcher()
+  }, [])
   return (
     <div className={styles.container}>
       <Head>
@@ -43,24 +63,4 @@ export default function Home({ data = ['1', '2', '3', '4'] }) {
       </div>
     </div>
   )
-}
-export async function getStaticProps(context) {
-  // Call an external API endpoint to get posts.
-  // You can use any data fetching library
-  const res = await fetch(
-    'https://wonderful-mushroom-0f8671c10.azurestaticapps.net/api/get'
-  )
-  const data = await res.json()
-
-  if (!data) {
-    return {
-      notFound: true,
-    }
-  }
-
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
-  return {
-    props: { data },
-  }
 }
