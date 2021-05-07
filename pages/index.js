@@ -19,18 +19,18 @@ export default function Home({ data = ['1', '2', '3', '4'] }) {
         </p>
 
         <div className={styles.grid}>
-          <ul>
-            {data.map((factItem, index) => {
-              return (
-                <li key={data[index]}>
-                  <a href="https://nextjs.org/docs" className={styles.card}>
-                    <h2>Dog Fact &rarr;</h2>
-                    <p>{factItem.fact}</p>
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
+          {data.map((factItem, index) => {
+            return (
+              <a
+                href="https://dukengn.github.io/Dog-facts-API/"
+                className={styles.card}
+                key={factItem[index]}
+              >
+                <h2>Dog Fact &rarr;</h2>
+                <p className={styles.fact}>{factItem.fact}</p>
+              </a>
+            )
+          })}
         </div>
       </main>
     </div>
