@@ -19,37 +19,24 @@ export default function Home({ data = ['1', '2', '3', '4'] }) {
         </p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Dog Fact &rarr;</h2>
-            <p>{data[0]}</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Dog Fact &rarr;</h2>
-            <p>{data[1]}</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Dog Fact &rarr;</h2>
-            <p> {data[2]}</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Dog Fact &rarr;</h2>
-            <p>{data[3]}</p>
-          </a>
+          <ul>
+            {data.map((factItem, index) => {
+              return (
+                <li key={data[index]}>
+                  <a href="https://nextjs.org/docs" className={styles.card}>
+                    <h2>Dog Fact &rarr;</h2>
+                    <p>{factItem.fact}</p>
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
         </div>
       </main>
     </div>
   )
 }
-export async function getStaticProps() {
+export async function getStaticProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
   const res = await fetch(
