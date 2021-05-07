@@ -10,8 +10,8 @@
     },
     {
       "type": "http",
-      "direction": "out",
-      "name": "res"
+      "name": "res",
+      "direction": "out"
     }
   ]
 }

@@ -1,11 +1,9 @@
-const axios = require('axios')
+const fetch = require('node-fetch')
 
 module.exports = async function (context) {
-  const response = await axios.get(
-    'https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=4',
-    {
-      headers: { Accept: '*/*' },
-    }
+  await fetch(
+    'https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=4'
   )
-  context.res.json(response)
+    .then((response) => response.json())
+    .then((response) => context.res.json(response))
 }
