@@ -1,4 +1,4 @@
-const axios = require('axios')
+const axios = require('axios').default
 
 module.exports = async function (context, req) {
   async function getUser() {
@@ -10,6 +10,7 @@ module.exports = async function (context, req) {
       return response
     } catch (error) {
       console.error(error)
+      return 'something went wrong'
     }
   }
   const data = getUser()
