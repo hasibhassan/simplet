@@ -7,6 +7,7 @@ module.exports = async function (context, req) {
         'https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=4'
       )
       console.log(response)
+      return response
     } catch (error) {
       console.error(error)
     }
