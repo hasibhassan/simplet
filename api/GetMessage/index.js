@@ -6,8 +6,8 @@ module.exports = async function (context, req) {
       const response = await axios.get(
         'https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=4'
       )
-      console.log(response)
-      return response
+      const apiData = await response.json()
+      return apiData
     } catch (error) {
       console.error(error)
       return 'something went wrong'
@@ -15,7 +15,7 @@ module.exports = async function (context, req) {
   }
   const data = getUser()
   return {
-    // status: 200, /* Defaults to 200 */
+    status: 200,
     body: data,
     headers: {
       'Content-Type': 'application/json',
