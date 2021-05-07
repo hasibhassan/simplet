@@ -2,7 +2,7 @@ module.exports = async function (context, req) {
   const apiResponse = await fetch(
     'https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=4'
   )
-  const data = apiResponse
+  const data = await apiResponse.json()
   console.log(data)
 
   return {
