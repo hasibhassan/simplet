@@ -25,10 +25,7 @@
   border-top-style: solid;
   border-top-color: #fff;
 }
-.hr {
-  margin-left: -8px;
-  margin-right: -8px;
-}
+
 .footer a {
   display: flex;
   justify-content: center;
@@ -107,7 +104,7 @@
 
 .card p {
   margin: 0;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
