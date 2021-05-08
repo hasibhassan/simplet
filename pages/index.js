@@ -13,6 +13,8 @@ export default function Home() {
       .then((res) => setData(res))
   }
 
+  const handleClick = (e) => fetcher()
+
   useEffect(() => {
     fetcher()
   }, [])
@@ -38,6 +40,9 @@ export default function Home() {
         </Head>
         <main className={styles.main}>
           <h1 className={styles.title}>Dog Facts</h1>
+          <button className={styles.button_one} onClick={() => handleClick()}>
+            Refresh facts
+          </button>
           <div className={styles.grid}>
             {data.map((arr, i) => (
               <a
